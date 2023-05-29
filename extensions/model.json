@@ -1,0 +1,105 @@
+{
+    "site": {
+        "Civitai": [
+            {
+                "url": "https://civitai.com/models/16014/anime-lineart-manga-like-style"
+            },
+            {
+                "url": "https://civitai.com/models/8373/rezero-emilia"
+            },
+            {
+                "url": "https://civitai.com/models/7022/girls-frontline-ump45"
+            },
+            {
+                "url": "https://civitai.com/models/9930/hk416-lolita-girlsfrontline"
+            },
+            {
+                "url": "https://civitai.com/models/13926/wa2000-or-girls-frontline"
+            },
+            {
+                "url": "https://civitai.com/models/9854/sangonomiya-kokomi-genshin-impact"
+            },
+            {
+                "url": "https://civitai.com/models/11850/shinobu-oshino-monogatari-series"
+            },
+            {
+                "url": "https://civitai.com/models/9879/kamisato-ayaka-genshin-impact"
+            },
+            {
+                "url": "https://civitai.com/models/9828/faruzan-genshin-impact"
+            },
+            {
+                "url": "https://civitai.com/models/8730/hipoly-3d-model-lora"
+            },
+            {
+                "url": "https://civitai.com/models/47067/pikas-new-generation-v10"
+            }
+        ],
+        "HuggingFace": [
+            {
+                "url": "https://huggingface.co/gsdf/Counterfeit-V3.0/resolve/main/embedding/EasyNegativeV2.safetensors",
+                "type": "TextualInversion"
+            },
+            {
+                "url": "https://huggingface.co/datasets/Nerfgun3/bad_prompt/resolve/main/bad_prompt_version2.pt",
+                "type": "TextualInversion"
+            },
+            {
+                "url": "https://huggingface.co/Xynon/models/resolve/main/experimentals/TI/bad-image-v2-39000.pt",
+                "type": "TextualInversion"
+            },
+            {
+                "url": "https://huggingface.co/Xynon/models/resolve/main/experimentals/TI/bad-image-v2-27000.pt",
+                "type": "TextualInversion"
+            },
+            {
+                "url": "https://huggingface.co/Xynon/models/resolve/main/experimentals/TI/bad-image-v2-11000.pt",
+                "type": "TextualInversion"
+            },
+            {
+                "url": "https://huggingface.co/andite/anything-v4.0/resolve/main/anything-v4.0-pruned.safetensors",
+                "type": "Checkpoint"
+            },
+            {
+                "url": "ttps://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/Models/AbyssOrangeMix3/AOM3A1B_orangemixs.safetensors",
+                "type": "Checkpoint"
+            },
+            {
+                "url": "https://huggingface.co/andite/pastel-mix/resolve/main/pastelmix.safetensors",
+                "type": "Checkpoint"
+            },
+            {
+                "url": "https://huggingface.co/gsdf/Counterfeit-V3.0/resolve/main/Counterfeit-V3.0_fp16.safetensors",
+                "type": "Checkpoint"
+            },
+            {
+                "url": "https://huggingface.co/gsdf/Replicant-V3.0/resolve/main/Replicant-V3.0_fp16.safetensors",
+                "type": "Checkpoint"
+            },
+            {
+                "url": "https://huggingface.co/NoCrypt/SomethingV2_2/resolve/main/SomethingV2_2.safetensors",
+                "type": "Checkpoint"
+            },
+            {
+                "url": "https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/VAEs/orangemix.vae.pt",
+                "type": "VAE"
+            },
+            {
+                "url": "https://huggingface.co/andite/pastel-mix/resolve/main/pastel-waifu-diffusion.vae.pt",
+                "type": "VAE"
+            }
+        ]
+    },
+    "directories": {
+        "sd": "stable-diffusion-webui/",
+        "Models": "stable-diffusion-webui/models/",
+        "outputs": "stable-diffusion-webui/outputs/",
+        "Extensions": "stable-diffusion-webui/extensions/",
+        "ControlNet": "stable-diffusion-webui/models/ControlNet/",
+        "LORA": "stable-diffusion-webui/models/Lora/",
+        "LoCon": "stable-diffusion-webui/models/Lora/",
+        "TextualInversion": "stable-diffusion-webui/embeddings/",
+        "VAE": "stable-diffusion-webui/models/VAE/",
+        "Checkpoint": "stable-diffusion-webui/models/Stable-diffusion/"
+    }
+}

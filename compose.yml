@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  init:
+    profiles:
+      - init
+    container_name: stable-diffusion-nvidia
+    build:
+      context: .
+    tty: true
+    network_mode: "host"
+    ipc: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+              - driver: nvidia
+                device_ids: ['0']
+                capabilities: [gpu]
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
+    command: [ "init" ]
+
+  web:
+    container_name: stable-diffusion-nvidia
+    build:
+      context: .
+    network_mode: "host"
+    tty: true
+    ipc: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+              - driver: nvidia
+                device_ids: ['0']
+                capabilities: [gpu]
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
