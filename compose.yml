@@ -22,6 +22,27 @@ services:
         target: /workspace
     command: [ "init" ]
 
+  reinstall:
+    profiles:
+      - reinstall
+    build:
+      context: .
+    tty: true
+    network_mode: "host"
+    ipc: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+              - driver: nvidia
+                device_ids: ['0']
+                capabilities: [gpu]
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
+    command: [ "reinstall" ]
+
   web:
     build:
       context: .

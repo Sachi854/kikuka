@@ -4,7 +4,7 @@ Stable Diffusion web UI の環境構築及びモデルのダウンロードとUI
 # Quick Start
 
 ## pre-requirements
-CUDA/git/Nvida Docker 2
+CUDA11.8/git/Nvida Docker 2
 
 ## Nvidia Docker 2
 初回実行
