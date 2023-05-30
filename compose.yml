@@ -4,7 +4,6 @@ services:
   init:
     profiles:
       - init
-    container_name: stable-diffusion-nvidia
     build:
       context: .
     tty: true
@@ -24,7 +23,6 @@ services:
     command: [ "init" ]
 
   web:
-    container_name: stable-diffusion-nvidia
     build:
       context: .
     network_mode: "host"

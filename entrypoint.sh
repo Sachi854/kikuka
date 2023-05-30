@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo -e "[safe]\n  directory = *" > ~/.gitconfig
+
 if [ "$1" = "init" ]; then
     cd /workspace
     # モデルをダウンロードする
