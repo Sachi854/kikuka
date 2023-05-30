@@ -43,3 +43,13 @@ cd kukuri
 
 ## ダウンロードするモデルや拡張機能を変更したい場合
 extensions/model.json を編集してください。
+
+## WSL2のネットワークが遅い場合
+https://qiita.com/bioflowy/items/02c9e945439a2d032cd2
+
+powershellを管理者権限で実行し、以下のコマンドを実行してください。
+
+```powershell
+Set-NetAdapterAdvancedProperty -InterfaceDescription 'Hyper-V Virtual Ethernet Adapter' -DisplayName 'Large Send Offload Version 2 (IPv4)' -DisplayValue 'Disabled' -IncludeHidden
+Set-NetAdapterAdvancedProperty -InterfaceDescription 'Hyper-V Virtual Ethernet Adapter' -DisplayName 'Large Send Offload Version 2 (IPv6)' -DisplayValue 'Disabled' -IncludeHidden
+```
