@@ -19,10 +19,12 @@ if [ "$1" = "init" ]; then
 fi
 
 cd /workspace/stable-diffusion-webui
+mkdir -p /workspace/stable-diffusion-webui/tfchache
 # 起動オプション
 export TORCH_COMMAND="pip install torch==2.0.0 torchvision --extra-index-url https://download.pytorch.org/whl/cu118"
 export REQS_FILE="requirements_versions.txt"
 export COMMANDLINE_ARGS="--deepdanbooru --theme dark --opt-channelslast --opt-sdp-no-mem-attention"
+export TRANSFORMERS_CACHE="/workspace/stable-diffusion-webui/tfchache"
 
 # web ui の実行
 source venv/bin/activate
