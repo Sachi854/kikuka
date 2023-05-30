@@ -12,6 +12,8 @@ import urllib.request
 # this function will get the api
 # arguments: url
 # return: json
+
+
 def get_civitai_api(url):
     endpoint_url = "https://civitai.com/api/v1/models/" + url.split('/')[-2]
     user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
@@ -90,25 +92,31 @@ async def main():
             print('Usage: python file_fetcher.py -f json_file_path')
             exit(1)
 
-    # download github files
-    print("Downloading GitHub files...")
-    await asyncio.gather(*[async_git_clone(working_dir + json_data["directories"][i["type"]], i["url"]) for i in json_data["site"]["GitHub"]])
-
     # mkdir the directories
     print("mkdir")
     for i in json_data["directories"]:
-        if not os.path.exists(i):
+        if i == "ControlNet":
+            continue
+        elif not os.path.exists(i):
             os.makedirs(
                 working_dir + json_data["directories"][i], exist_ok=True)
+        else:
+            print("Directory already exists!!")
 
     # download the files
-    # Civitai
-    print("Downloading Civitai files...")
-    await asyncio.gather(*[async_download(working_dir + json_data["directories"][j["type"]] + j["modelVersions"][0]["files"][0]["name"], j["modelVersions"][0]["files"][0]["downloadUrl"]) for j in [get_civitai_api(i["url"]) for i in json_data["site"]["Civitai"]]])
-
-    # HuggingFace
-    print("Downloading HuggingFace files...")
-    await asyncio.gather(*[async_download(working_dir + json_data["directories"][i["type"]] + get_file_name_from_url(i["url"]), i["url"]) for i in json_data["site"]["HuggingFace"]])
+    for i in json_data["site"]:
+        if i == "GitHub":
+            print("Downloading GitHub files...")
+            await asyncio.gather(*[async_git_clone(working_dir + json_data["directories"][i["type"]], i["url"]) for i in json_data["site"]["GitHub"]])
+        elif i == "Civitai":
+            print("Downloading Civitai files...")
+            await asyncio.gather(*[async_download(working_dir + json_data["directories"][j["type"]] + j["modelVersions"][0]["files"][0]["name"], j["modelVersions"][0]["files"][0]["downloadUrl"]) for j in [get_civitai_api(i["url"]) for i in json_data["site"]["Civitai"]]])
+        elif i == "HuggingFace":
+            print("Downloading HuggingFace files...")
+            await asyncio.gather(*[async_download(working_dir + json_data["directories"][i["type"]] + get_file_name_from_url(i["url"]), i["url"]) for i in json_data["site"]["HuggingFace"]])
+        else:
+            print("Unknown site")
+            exit(1)
 
 if __name__ == '__main__':
     asyncio.run(main())
