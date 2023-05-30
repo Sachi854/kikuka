@@ -114,7 +114,7 @@
         "Models": "stable-diffusion-webui/models/",
         "outputs": "stable-diffusion-webui/outputs/",
         "Extensions": "stable-diffusion-webui/extensions/",
-        "ControlNet": "stable-diffusion-webui/extensions/sd-webui-controlnet/models",
+        "ControlNet": "stable-diffusion-webui/extensions/sd-webui-controlnet/models/",
         "LORA": "stable-diffusion-webui/models/Lora/",
         "LoCon": "stable-diffusion-webui/models/Lora/",
         "TextualInversion": "stable-diffusion-webui/embeddings/",
