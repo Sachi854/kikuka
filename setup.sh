@@ -3,9 +3,10 @@
 if [ "$1" = "init" ]; then
 # python3.10系やffmpegを入れる
     sudo apt-get update -y
-    sudo add-apt-repository -y ppa:deadsnakes/ppa
+    sudo apt-get upgrade -y
+    apt-get install -y tzdata
     sudo apt-get update -y
-    sudo apt-get install -y libglib2.0-0 python3.10-full python3.10-venv python3-pip git wget curl ffmpeg libsm6 unzip
+    sudo apt-get install -y python3.10-full python3.10-venv python3-pip git wget curl ffmpeg unzip build-essential pkg-config libcairo2-dev libjpeg-dev libgif-dev libglib2.0-0 libsm6
     # モデルをダウンロードする
     cat ./extensions/base.json | python3 ./downloader.py
     cat ./extensions/model.json | python3 ./downloader.py
