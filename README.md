@@ -4,7 +4,7 @@ Stable Diffusion web UI の環境構築及びモデルのダウンロードとUI
 # Quick Start
 
 ## pre-requirements
-CUDA11.8/git/Nvida Docker 2
+CUDA11.8/git/Nvida Docker 2/ROCm5.4.2
 
 ## Nvidia Docker 2
 初回実行
@@ -20,7 +20,27 @@ sudo docker compose up init
 
 ```bash
 cd kukuri
-sudo docker compose up
+git submodule update --recursive --remote
+sudo docker compose up web
+```
+
+## ROCm Docker
+
+初回実行
+
+```bash
+git clone --recursive https://github.com/Sachi854/kukuri.git
+cd kukuri
+# 大量のダウンロードが発生するため時間がかかります。
+sudo docker compose up init2
+```
+
+2回目以降
+
+```bash
+cd kukuri
+git submodule update --recursive --remote
+sudo docker compose up web2
 ```
 
 ## Native
@@ -36,6 +56,7 @@ cd kukuri
 
 ```bash
 cd kukuri
+git submodule update --recursive --remote
 ./setup.sh
 ```
 
@@ -53,3 +74,11 @@ powershellを管理者権限で実行し、以下のコマンドを実行して�
 Set-NetAdapterAdvancedProperty -InterfaceDescription 'Hyper-V Virtual Ethernet Adapter' -DisplayName 'Large Send Offload Version 2 (IPv4)' -DisplayValue 'Disabled' -IncludeHidden
 Set-NetAdapterAdvancedProperty -InterfaceDescription 'Hyper-V Virtual Ethernet Adapter' -DisplayName 'Large Send Offload Version 2 (IPv6)' -DisplayValue 'Disabled' -IncludeHidden
 ```
+
+## Deploy ROCm Docker containers
+
+https://rocm.docs.amd.com/en/latest/deploy/docker.html
+
+## PyTorch
+
+https://pytorch.org
