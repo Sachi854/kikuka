@@ -73,10 +73,6 @@
                 "type": "Checkpoint"
             },
             {
-                "url": "https://huggingface.co/gsdf/Replicant-V3.0/resolve/main/Replicant-V3.0_fp16.safetensors",
-                "type": "Checkpoint"
-            },
-            {
                 "url": "https://huggingface.co/NoCrypt/SomethingV2_2/resolve/main/SomethingV2_2.safetensors",
                 "type": "Checkpoint"
             },
