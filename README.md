@@ -43,23 +43,6 @@ git submodule update --recursive --remote
 sudo docker compose up web2
 ```
 
-## Native
-初回実行
-
-```bash
-git clone --recursive https://github.com/Sachi854/kukuri.git
-cd kukuri
-./setup.sh init
-```
-
-2回目以降
-
-```bash
-cd kukuri
-git submodule update --recursive --remote
-./setup.sh
-```
-
 # Tips
 
 ## ダウンロードするモデルや拡張機能を変更したい場合
