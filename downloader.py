@@ -92,31 +92,43 @@ async def main():
             print('Usage: python file_fetcher.py -f json_file_path')
             exit(1)
 
-    # mkdir the directories
+    print(working_dir)
+
+    # mkdir the directory
     print("mkdir")
-    for i in json_data["directories"]:
+    for i in json_data["directory"]:
         if i == "ControlNet":
             continue
         elif not os.path.exists(i):
             os.makedirs(
-                working_dir + json_data["directories"][i], exist_ok=True)
+                working_dir + json_data["directory"][i], exist_ok=True)
         else:
             print("Directory already exists!!")
 
-    # download the files
-    for i in json_data["site"]:
-        if i == "GitHub":
+    # download the controlnet files
+    tasks = []
+    for i in json_data["url"]:
+        # get domain name from url
+        domain_name = urllib.parse.urlparse(i["url"]).netloc
+        if domain_name == "github.com":
             print("Downloading GitHub files...")
-            await asyncio.gather(*[async_git_clone(working_dir + json_data["directories"][i["type"]], i["url"]) for i in json_data["site"]["GitHub"]])
-        elif i == "Civitai":
+            tasks.append(asyncio.create_task(async_git_clone(
+                working_dir + json_data["directory"][i["type"]], i["url"])))
+        elif domain_name == "civitai.com":
             print("Downloading Civitai files...")
-            await asyncio.gather(*[async_download(working_dir + json_data["directories"][j["type"]] + j["modelVersions"][0]["files"][0]["name"], j["modelVersions"][0]["files"][0]["downloadUrl"]) for j in [get_civitai_api(i["url"]) for i in json_data["site"]["Civitai"]]])
-        elif i == "HuggingFace":
+            j = get_civitai_api(i["url"])
+            tasks.append(asyncio.create_task(async_download(
+                working_dir + json_data["directory"][j["type"]] + j["modelVersions"][0]["files"][0]["name"], j["modelVersions"][0]["files"][0]["downloadUrl"])))
+        elif domain_name == "huggingface.co":
             print("Downloading HuggingFace files...")
-            await asyncio.gather(*[async_download(working_dir + json_data["directories"][i["type"]] + get_file_name_from_url(i["url"]), i["url"]) for i in json_data["site"]["HuggingFace"]])
+            tasks.append(asyncio.create_task(async_download(
+                working_dir + json_data["directory"][i["type"]] + get_file_name_from_url(i["url"]), i["url"])))
         else:
             print("Unknown site")
             exit(1)
+    # download the files asynchronously
+    await asyncio.gather(*tasks)
 
 if __name__ == '__main__':
     asyncio.run(main())
+    print("Done!!")
