@@ -5,7 +5,8 @@ echo -e "[safe]\n  directory = *" > ~/.gitconfig
 if [ "$1" = "init" ]; then
     cd /workspace
     # モデルをダウンロードする
-    cat ./extensions/base.json | python3 ./downloader.py
+    cat ./extensions/extension.json | python3 ./downloader.py
+    cat ./extensions/controlnet.json | python3 ./downloader.py
     cat ./extensions/model.json | python3 ./downloader.py
     # web ui dir に移動
     cd ./stable-diffusion-webui

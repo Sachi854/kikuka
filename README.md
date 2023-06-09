@@ -20,6 +20,7 @@ sudo docker compose up init
 
 ```bash
 cd kukuri
+git pull
 git submodule update --recursive --remote
 sudo docker compose up web
 ```
@@ -39,6 +40,7 @@ sudo docker compose up init2
 
 ```bash
 cd kukuri
+git pull
 git submodule update --recursive --remote
 sudo docker compose up web2
 ```

@@ -1,0 +1,25 @@
+{
+    "url": [
+        {
+            "url": "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_fatal_Anime_500000_G.pth",
+            "type": "ESRGAN"
+        },
+        {
+            "url": "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x-AnimeSharp.pth",
+            "type": "ESRGAN"
+        }
+    ],
+    "directory": {
+        "sd": "stable-diffusion-webui/",
+        "Models": "stable-diffusion-webui/models/",
+        "outputs": "stable-diffusion-webui/outputs/",
+        "Extensions": "stable-diffusion-webui/extensions/",
+        "ControlNet": "stable-diffusion-webui/extensions/sd-webui-controlnet/models/",
+        "LORA": "stable-diffusion-webui/models/Lora/",
+        "ESRGAN": "stable-diffusion-webui/models/ESRGAN/",
+        "LoCon": "stable-diffusion-webui/models/Lora/",
+        "TextualInversion": "stable-diffusion-webui/embeddings/",
+        "VAE": "stable-diffusion-webui/models/VAE/",
+        "Checkpoint": "stable-diffusion-webui/models/Stable-diffusion/"
+    }
+}
