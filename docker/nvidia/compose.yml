@@ -1,7 +1,6 @@
 version: "3.9"
 
 services:
-  # Nvidia
   init:
     profiles:
       - init
@@ -47,8 +46,6 @@ services:
     command: [ "reinstall" ]
 
   web:
-    profiles:
-      - web
     build:
       context: .
       dockerfile: docker/nvidia/Dockerfile
@@ -66,74 +63,11 @@ services:
       - type: bind
         source: .
         target: /workspace
-
-  # ROCm
-  init2:
-    profiles:
-      - init2
-    build:
-      context: .
-      dockerfile: docker/rocm/Dockerfile
-    tty: true
-    network_mode: "host"
-    ipc: host
-    devices:
-      - "/dev/kfd"
-      - "/dev/dri"
-    group_add:
-      - video
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - seccomp:unconfined
-    volumes:
-      - type: bind
-        source: .
-        target: /workspace
-    command: [ "init" ]
-
-  reinstall2:
-    profiles:
-      - reinstall2
-    build:
-      context: .
-      dockerfile: docker/rocm/Dockerfile
-    tty: true
-    network_mode: "host"
-    ipc: host
-    devices:
-      - "/dev/kfd"
-      - "/dev/dri"
-    group_add:
-      - video
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - seccomp:unconfined
-    volumes:
-      - type: bind
-        source: .
-        target: /workspace
-    command: [ "reinstall" ]
-
-  web2:
-    profiles:
-      - web2
-    build:
-      context: .
-      dockerfile: docker/rocm/Dockerfile
-    network_mode: "host"
-    tty: true
-    ipc: host
-    devices:
-      - "/dev/kfd"
-      - "/dev/dri"
-    group_add:
-      - video
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - seccomp:unconfined
+  
+  jupyter:
+    image: jupyter/minimal-notebook:latest
+    ports:
+      - "8888:4545"
     volumes:
       - type: bind
         source: .

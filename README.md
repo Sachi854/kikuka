@@ -12,8 +12,9 @@ CUDA11.8/git/Nvida Docker 2/ROCm5.4.2
 ```bash
 git clone --recursive https://github.com/Sachi854/kukuri.git
 cd kukuri
+cp ./docker/nvidia/compose.yml .
 # 大量のダウンロードが発生するため時間がかかります。
-sudo docker compose up init
+sudo docker compose run init
 ```
 
 2回目以降
@@ -22,7 +23,7 @@ sudo docker compose up init
 cd kukuri
 git pull
 git submodule update --recursive --remote
-sudo docker compose up web
+sudo docker compose up
 ```
 
 ## ROCm Docker
@@ -32,8 +33,9 @@ sudo docker compose up web
 ```bash
 git clone --recursive https://github.com/Sachi854/kukuri.git
 cd kukuri
+cp ./docker/rocm/compose.yml .
 # 大量のダウンロードが発生するため時間がかかります。
-sudo docker compose up init2
+sudo docker compose run init
 ```
 
 2回目以降
@@ -42,8 +44,14 @@ sudo docker compose up init2
 cd kukuri
 git pull
 git submodule update --recursive --remote
-sudo docker compose up web2
+sudo docker compose up
 ```
+
+## Connect
+
+http://localhost:7860/
+
+http://localhost:4545/ 
 
 # Tips
 
