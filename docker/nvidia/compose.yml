@@ -5,7 +5,7 @@ services:
     profiles:
       - init
     build:
-      context: .
+      context: docker/nvidia/
       dockerfile: docker/nvidia/Dockerfile
     tty: true
     network_mode: "host"
@@ -27,7 +27,7 @@ services:
     profiles:
       - reinstall
     build:
-      context: .
+      context: docker/nvidia/
       dockerfile: docker/nvidia/Dockerfile
     tty: true
     network_mode: "host"
@@ -47,7 +47,7 @@ services:
 
   web:
     build:
-      context: .
+      context: docker/nvidia/
       dockerfile: docker/nvidia/Dockerfile
     network_mode: "host"
     tty: true
@@ -67,7 +67,7 @@ services:
   jupyter:
     image: jupyter/minimal-notebook:latest
     ports:
-      - "8888:4545"
+      - "4545:8888"
     volumes:
       - type: bind
         source: .

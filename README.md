@@ -2,7 +2,6 @@
 Stable Diffusion web UI の環境構築及びモデルのダウンロードとUIの実行を行うスクリプト群です。
 
 # Quick Start
-
 ## pre-requirements
 CUDA11.8/git/Nvida Docker 2/ROCm5.4.2
 
@@ -27,7 +26,6 @@ sudo docker compose up
 ```
 
 ## ROCm Docker
-
 初回実行
 
 ```bash
@@ -47,14 +45,12 @@ git submodule update --recursive --remote
 sudo docker compose up
 ```
 
-## Connect
-
+## Connect to UI
 http://localhost:7860/
 
 http://localhost:4545/ 
 
 # Tips
-
 ## ダウンロードするモデルや拡張機能を変更したい場合
 extensions/model.json を編集してください。
 
@@ -69,9 +65,7 @@ Set-NetAdapterAdvancedProperty -InterfaceDescription 'Hyper-V Virtual Ethernet A
 ```
 
 ## Deploy ROCm Docker containers
-
 https://rocm.docs.amd.com/en/latest/deploy/docker.html
 
 ## PyTorch
-
 https://pytorch.org
