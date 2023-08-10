@@ -112,17 +112,27 @@ async def main():
         domain_name = urllib.parse.urlparse(i["url"]).netloc
         if domain_name == "github.com":
             print("Downloading GitHub files...")
-            tasks.append(asyncio.create_task(async_git_clone(
-                working_dir + json_data["directory"][i["type"]], i["url"])))
+            file_path = working_dir + json_data["directory"][i["type"]]
+            if not os.path.exists(file_path):
+                tasks.append(asyncio.create_task(async_git_clone(
+                    file_path, i["url"])))
         elif domain_name == "civitai.com":
             print("Downloading Civitai files...")
             j = get_civitai_api(i["url"])
-            tasks.append(asyncio.create_task(async_download(
-                working_dir + json_data["directory"][j["type"]] + j["modelVersions"][0]["files"][0]["name"], j["modelVersions"][0]["files"][0]["downloadUrl"])))
+            file_path = working_dir + \
+                json_data["directory"][j["type"]] + \
+                j["modelVersions"][0]["files"][0]["name"]
+            if not os.path.exists(file_path):
+                tasks.append(asyncio.create_task(async_download(
+                    file_path, j["modelVersions"][0]["files"][0]["downloadUrl"])))
         elif domain_name == "huggingface.co":
             print("Downloading HuggingFace files...")
-            tasks.append(asyncio.create_task(async_download(
-                working_dir + json_data["directory"][i["type"]] + get_file_name_from_url(i["url"]), i["url"])))
+            file_path = working_dir + \
+                json_data["directory"][i["type"]] + \
+                get_file_name_from_url(i["url"])
+            if not os.path.exists(file_path):
+                tasks.append(asyncio.create_task(async_download(
+                    file_path, i["url"])))
         else:
             print("Unknown site")
             exit(1)
