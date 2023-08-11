@@ -11,6 +11,7 @@ CUDA11.8/git/Nvida Docker 2/ROCm5.4.2
 ```bash
 git clone --recursive https://github.com/Sachi854/kukuri.git
 cd kukuri
+git submodule foreach git pull origin master
 cp ./docker/nvidia/* .
 # 大量のダウンロードが発生するため時間がかかります。
 sudo docker compose run init
@@ -21,7 +22,7 @@ sudo docker compose run init
 ```bash
 cd kukuri
 git pull
-git submodule update --recursive --remote
+git submodule foreach git pull origin master
 sudo docker compose up
 ```
 
@@ -31,6 +32,7 @@ sudo docker compose up
 ```bash
 git clone --recursive https://github.com/Sachi854/kukuri.git
 cd kukuri
+git submodule foreach git pull origin master
 cp ./docker/rocm/* .
 # 大量のダウンロードが発生するため時間がかかります。
 sudo docker compose run init
@@ -41,7 +43,7 @@ sudo docker compose run init
 ```bash
 cd kukuri
 git pull
-git submodule update --recursive --remote
+git submodule foreach git pull origin master
 sudo docker compose up
 ```
 
