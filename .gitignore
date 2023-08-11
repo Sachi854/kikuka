@@ -1,2 +1,2 @@
-./stable-diffusion-webui/tfchache/
-./__pycache__/
+stable-diffusion-webui/tfchache/
+__pycache__/
