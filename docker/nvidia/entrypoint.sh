@@ -36,7 +36,7 @@ mkdir -p /workspace/stable-diffusion-webui/tfchache
 # 起動オプション
 export TORCH_COMMAND="pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118"
 export REQS_FILE="requirements_versions.txt"
-export COMMANDLINE_ARGS="--listen --enable-insecure-extension-access --deepdanbooru --theme dark --opt-channelslast --opt-sdp-no-mem-attention"
+export COMMANDLINE_ARGS="--listen --enable-insecure-extension-access --deepdanbooru --theme dark --no-half-vae --opt-channelslast --opt-sdp-no-mem-attention"
 export TRANSFORMERS_CACHE="/workspace/stable-diffusion-webui/tfchache"
 
 # web ui の実行
