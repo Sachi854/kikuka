@@ -5,8 +5,7 @@ services:
     profiles:
       - init
     build:
-      context: docker/nvidia/
-      dockerfile: docker/nvidia/Dockerfile
+      context: .
     tty: true
     network_mode: "host"
     ipc: host
@@ -27,8 +26,7 @@ services:
     profiles:
       - reinstall
     build:
-      context: docker/nvidia/
-      dockerfile: docker/nvidia/Dockerfile
+      context: .
     tty: true
     network_mode: "host"
     ipc: host
@@ -47,8 +45,7 @@ services:
 
   web:
     build:
-      context: docker/nvidia/
-      dockerfile: docker/nvidia/Dockerfile
+      context: .
     network_mode: "host"
     tty: true
     ipc: host

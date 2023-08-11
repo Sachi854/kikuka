@@ -5,8 +5,7 @@ services:
     profiles:
       - init
     build:
-      context: docker/rocm/
-      dockerfile: docker/rocm/Dockerfile
+      context: .
     tty: true
     network_mode: "host"
     ipc: host
@@ -29,8 +28,7 @@ services:
     profiles:
       - reinstall
     build:
-      context: docker/rocm/
-      dockerfile: docker/rocm/Dockerfile
+      context: .
     tty: true
     network_mode: "host"
     ipc: host
@@ -51,8 +49,7 @@ services:
 
   web:
     build:
-      context: docker/rocm/
-      dockerfile: docker/rocm/Dockerfile
+      context: .
     network_mode: "host"
     tty: true
     ipc: host
