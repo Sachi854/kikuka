@@ -12,9 +12,6 @@ class TestDownloader(unittest.TestCase):
         self.assertRaises(urllib.error.HTTPError, d.get_civitai_api,
                           "https://www.google.co.jp")
 
-
 if __name__ == '__main__':
     print("Running tests for downloader.py")
     unittest.main()
-    # https://civitai.com/models/122533/animagine-xl
-    print(d.get_civitai_api("https://civitai.com/models/122533/animagine-xl"))
