@@ -130,6 +130,7 @@ async def main():
                 tasks.append(asyncio.create_task(async_git_clone(
                     file_path, i["url"])))
         elif domain_name == "civitai.com":
+            j = get_civitai_api(i["url"])
             file_path = working_dir + \
                 json_data["directory"][j["type"]] + \
                 j["modelVersions"][0]["files"][0]["name"]
