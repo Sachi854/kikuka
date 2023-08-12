@@ -2,43 +2,23 @@
 
 echo -e "[safe]\n  directory = *" > ~/.gitconfig
 
-if [ "$1" = "init" ]; then
-    cd /workspace
-    # モデルをダウンロードする
-    cat ./extensions/extension.json | python3 ./downloader.py
-    cat ./extensions/controlnet.json | python3 ./downloader.py
-    cat ./extensions/model.json | python3 ./downloader.py
-    # web ui dir に移動
-    cd ./stable-diffusion-webui
-    python3.10 -m venv venv
-    source venv/bin/activate
-    python -m pip install --upgrade pip wheel
-    # requirements_versions.txt の内容をインストール
-    # torch 2.0 を先に入れる
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-    pip install -r requirements_versions.txt
-fi
-
-cd /workspace/stable-diffusion-webui
-
 if [ "$1" = "reinstall" ]; then
+    cd /workspace/ComfyUI
     rm -rf venv
-    python3.10 -m venv venv
-    source venv/bin/activate
-    python -m pip install --upgrade pip wheel
-    # requirements_versions.txt の内容をインストール
-    # torch 2.0 を先に入れる
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-    pip install -r requirements_versions.txt
 fi
 
-mkdir -p /workspace/stable-diffusion-webui/tfchache
-# 起動オプション
-export TORCH_COMMAND="pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118"
-export REQS_FILE="requirements_versions.txt"
-export COMMANDLINE_ARGS="--listen --enable-insecure-extension-access --deepdanbooru --theme dark --no-half-vae --opt-channelslast --opt-sdp-no-mem-attention"
-export TRANSFORMERS_CACHE="/workspace/stable-diffusion-webui/tfchache"
-
-# web ui の実行
+cd /workspace
+# モデルをダウンロードする
+cat ./extensions/extension.json | python3 ./downloader.py
+cat ./extensions/controlnet.json | python3 ./downloader.py
+cat ./extensions/model.json | python3 ./downloader.py
+# web ui dir に移動
+cd ./ComfyUI
+python3.10 -m venv venv
 source venv/bin/activate
-python launch.py
+python -m pip install --upgrade pip wheel
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118 xformers
+pip install -r requirements.txt
+
+# 起動
+python main.py

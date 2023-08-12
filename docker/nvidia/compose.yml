@@ -1,27 +1,6 @@
 version: "3.9"
 
 services:
-  init:
-    profiles:
-      - init
-    build:
-      context: .
-    tty: true
-    network_mode: "host"
-    ipc: host
-    deploy:
-      resources:
-        reservations:
-          devices:
-              - driver: nvidia
-                device_ids: ['0']
-                capabilities: [gpu]
-    volumes:
-      - type: bind
-        source: .
-        target: /workspace
-    command: [ "init" ]
-
   reinstall:
     profiles:
       - reinstall
@@ -64,8 +43,8 @@ services:
   jupyter:
     image: jupyter/minimal-notebook:latest
     ports:
-      - "4545:8888"
+      - "8888:8888"
     volumes:
       - type: bind
         source: .
-        target: /workspace
+        target: /home/jovyan/workspace

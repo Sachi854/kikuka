@@ -47,8 +47,8 @@ services:
   jupyter:
     image: jupyter/minimal-notebook:latest
     ports:
-      - "4545:8888"
+      - "8888:8888"
     volumes:
       - type: bind
         source: .
-        target: /workspace
+        target: /home/jovyan/workspace

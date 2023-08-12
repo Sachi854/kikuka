@@ -9,9 +9,9 @@ fi
 
 cd /workspace
 # モデルをダウンロードする
-#cat ./extensions/extension.json | python3 ./downloader.py
-#cat ./extensions/controlnet.json | python3 ./downloader.py
-#cat ./extensions/model.json | python3 ./downloader.py
+cat ./extensions/extension.json | python3 ./downloader.py
+cat ./extensions/controlnet.json | python3 ./downloader.py
+cat ./extensions/model.json | python3 ./downloader.py
 # web ui dir に移動
 cd ./ComfyUI
 python3.10 -m venv venv
@@ -21,4 +21,4 @@ pip install --pre torch torchvision torchaudio --index-url https://download.pyto
 pip install -r requirements.txt
 
 # 起動
-python main.py
+python main.py --use-pytorch-cross-attention
