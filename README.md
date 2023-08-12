@@ -5,46 +5,39 @@ Stable Diffusion web UI の環境構築及びモデルのダウンロードとUI
 ## pre-requirements
 CUDA11.8/git/Nvida Docker 2/ROCm5.4.2
 
-## Nvidia Docker 2
-初回実行
-
+## 初回実行
+### Nvidia Docker 2
 ```bash
-git clone --recursive https://github.com/Sachi854/kukuri.git
-cd kukuri
+git clone --recursive https://github.com/Sachi854/kikuka.git
+cd kikuka
 git submodule foreach git pull origin master
 cp ./docker/nvidia/* .
-# 大量のダウンロードが発生するため時間がかかります。
-sudo docker compose run init
-```
-
-2回目以降
-
-```bash
-cd kukuri
-git pull
-git submodule foreach git pull origin master
 sudo docker compose up
 ```
 
-## ROCm Docker
-初回実行
+### ROCm Docker
 
 ```bash
-git clone --recursive https://github.com/Sachi854/kukuri.git
-cd kukuri
+git clone --recursive https://github.com/Sachi854/kikuka.git
+cd kikuka
 git submodule foreach git pull origin master
 cp ./docker/rocm/* .
-# 大量のダウンロードが発生するため時間がかかります。
-sudo docker compose run init
+sudo docker compose up
 ```
 
-2回目以降
+## 2回目以降
 
 ```bash
-cd kukuri
+cd kikuka
 git pull
 git submodule foreach git pull origin master
 sudo docker compose up
+```
+
+## ライブラリの再インストール等
+```bash
+# ライブラリの再インストール
+sudo docker compose run reinstall
 ```
 
 ## Connect to UI
@@ -54,7 +47,7 @@ http://localhost:4545/
 
 # Tips
 ## ダウンロードするモデルや拡張機能を変更したい場合
-extensions/model.json を編集してください。
+extensions/model.json を編集してください。次回実行時に自動でダウンロードされます。
 
 ## WSL2のネットワークが遅い場合
 https://qiita.com/bioflowy/items/02c9e945439a2d032cd2

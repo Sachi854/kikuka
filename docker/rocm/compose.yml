@@ -1,29 +1,6 @@
 version: "3.9"
 
 services:
-  init:
-    profiles:
-      - init
-    build:
-      context: .
-    tty: true
-    network_mode: "host"
-    ipc: host
-    devices:
-      - "/dev/kfd"
-      - "/dev/dri"
-    group_add:
-      - video
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - seccomp:unconfined
-    volumes:
-      - type: bind
-        source: .
-        target: /workspace
-    command: [ "init" ]
-
   reinstall:
     profiles:
       - reinstall

@@ -1,4 +1,4 @@
-FROM rocm/dev-ubuntu-22.04:5.4.2-complete
+FROM rocm/dev-ubuntu-22.04:5.6-complete
 WORKDIR /workspace
  
 ENV TZ=Asia/Tokyo
@@ -14,4 +14,3 @@ RUN apt-get update && \
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD ["webui"]
