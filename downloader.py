@@ -106,18 +106,18 @@ async def main():
             print("Directory already exists!!")
 
     # download the controlnet files
+    print("download files")
     tasks = []
     for i in json_data["url"]:
         # get domain name from url
         domain_name = urllib.parse.urlparse(i["url"]).netloc
         if domain_name == "github.com":
-            print("Downloading GitHub files...")
             file_path = working_dir + json_data["directory"][i["type"]]
-            if not os.path.exists(file_path):
+            file_path_clone = file_path + get_repository_name(i["url"])
+            if not os.path.exists(file_path_clone):
                 tasks.append(asyncio.create_task(async_git_clone(
                     file_path, i["url"])))
         elif domain_name == "civitai.com":
-            print("Downloading Civitai files...")
             j = get_civitai_api(i["url"])
             file_path = working_dir + \
                 json_data["directory"][j["type"]] + \
@@ -126,7 +126,6 @@ async def main():
                 tasks.append(asyncio.create_task(async_download(
                     file_path, j["modelVersions"][0]["files"][0]["downloadUrl"])))
         elif domain_name == "huggingface.co":
-            print("Downloading HuggingFace files...")
             file_path = working_dir + \
                 json_data["directory"][i["type"]] + \
                 get_file_name_from_url(i["url"])
