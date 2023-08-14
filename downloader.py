@@ -76,15 +76,19 @@ def generate_civitai_path_list(download_base_path_dict: dict, download_civitai_d
 
 def generate_download_path_dict(download_base_path_dict: dict, download_site_dict: dict) -> dict:
     result = {"git": [], "curl": []}
-    for i in download_site_dict['github.com']:
-        result["git"].append(
-            generate_git_clone_path_dict(download_base_path_dict=download_base_path_dict, download_git_dict=i))
-    for i in download_site_dict['huggingface.co']:
-        result["curl"].append(generate_curl_path_dict(
-            download_base_path_dict=download_base_path_dict, download_curl_dict=i))
-    for i in download_site_dict['civitai.com']:
-        result["curl"].extend(generate_civitai_path_list(
-            download_base_path_dict=download_base_path_dict, download_civitai_dict=i))
+    for h in download_site_dict.keys():
+        if h == 'github.com':
+            for i in download_site_dict['github.com']:
+                result["git"].append(
+                    generate_git_clone_path_dict(download_base_path_dict=download_base_path_dict, download_git_dict=i))
+        if h == 'huggingface.co':
+            for i in download_site_dict['huggingface.co']:
+                result["curl"].append(generate_curl_path_dict(
+                    download_base_path_dict=download_base_path_dict, download_curl_dict=i))
+        if h == 'civitai.com':
+            for i in download_site_dict['civitai.com']:
+                result["curl"].extend(generate_civitai_path_list(
+                    download_base_path_dict=download_base_path_dict, download_civitai_dict=i))
     return result
 
 
