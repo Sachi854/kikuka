@@ -1,12 +1,8 @@
 {
     "url": [
         {
-            "url": "https://tin.com/girl.safetensors",
-            "type": "Checkpoint"
-        },
-        {
-            "url": "https://tin.com/girl-vae.safetensors",
-            "type": "VAE"
+            "url": "https://github.com/ltdrdata/ComfyUI-Manager.git",
+            "type": "custom_nodes"
         }
     ],
     "path": {
@@ -18,6 +14,7 @@
         "LORA": "ComfyUI/models/loras/",
         "Controlnet": "ComfyUI/models/controlnet/",
         "UpscaleModel": "ComfyUI/models/upscale_models/",
+        "custom_nodes": "ComfyUI/models/custom_nodes/",
         "output": "ComfyUI/output/"
     }
 }

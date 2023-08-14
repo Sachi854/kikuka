@@ -43,8 +43,12 @@ services:
   jupyter:
     image: jupyter/minimal-notebook:latest
     ports:
-      - "8888:8888"
+      - "127.0.0.1:8888:8888"
+    command:
+      - start-notebook.sh
+      - --NotebookApp.token=''
+      - --NotebookApp.disable_check_xsrf=True
     volumes:
       - type: bind
         source: .
-        target: /home/jovyan/workspace
+        target: /home/jovyan/work

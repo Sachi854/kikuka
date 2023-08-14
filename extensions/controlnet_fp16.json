@@ -70,6 +70,7 @@
         "LORA": "ComfyUI/models/loras/",
         "Controlnet": "ComfyUI/models/controlnet/",
         "UpscaleModel": "ComfyUI/models/upscale_models/",
+        "custom_nodes": "ComfyUI/models/custom_nodes/",
         "output": "ComfyUI/output/"
     }
 }

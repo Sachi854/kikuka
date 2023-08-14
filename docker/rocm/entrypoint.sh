@@ -8,10 +8,13 @@ if [ "$1" = "reinstall" ]; then
 fi
 
 cd /workspace
+# 最新のリポジトリに更新する
+git pull
+git submodule foreach git pull origin master
 # モデルをダウンロードする
-cat ./extensions/extension.json | python3 ./downloader.py
-cat ./extensions/controlnet.json | python3 ./downloader.py
-cat ./extensions/model.json | python3 ./downloader.py
+cat ./extensions/custom_nodes.json | python3 ./downloader.py
+cat ./extensions/controlnet_fp16.json | python3 ./downloader.py
+cat ./extensions/models.json | python3 ./downloader.py
 # web ui dir に移動
 cd ./ComfyUI
 python3.10 -m venv venv

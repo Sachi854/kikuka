@@ -1,16 +1,21 @@
 # README
-Stable Diffusion web UI の環境構築及びモデルのダウンロードとUIの実行を行うスクリプト群です。
+ComfyUIの環境構築及びモデルのダウンロードとUIの実行を行うスクリプト群です。
+
+[ComfyUI](https://github.com/comfyanonymous/ComfyUI)
+
+[ComfyUI Examples](https://comfyanonymous.github.io/ComfyUI_examples/)
+
+[ComfyUI Community Manual](https://blenderneko.github.io/ComfyUI-docs/)
 
 # Quick Start
 ## pre-requirements
-CUDA11.8/git/Nvida Docker 2/ROCm5.4.2
+CUDA11.8/git/Nvida Docker 2/ROCm5.6
 
 ## 初回実行
 ### Nvidia Docker 2
 ```bash
 git clone --recursive https://github.com/Sachi854/kikuka.git
 cd kikuka
-git submodule foreach git pull origin master
 cp ./docker/nvidia/* .
 sudo docker compose up
 ```
@@ -20,7 +25,6 @@ sudo docker compose up
 ```bash
 git clone --recursive https://github.com/Sachi854/kikuka.git
 cd kikuka
-git submodule foreach git pull origin master
 cp ./docker/rocm/* .
 sudo docker compose up
 ```
@@ -29,8 +33,6 @@ sudo docker compose up
 
 ```bash
 cd kikuka
-git pull
-git submodule foreach git pull origin master
 sudo docker compose up
 ```
 
@@ -38,16 +40,20 @@ sudo docker compose up
 ```bash
 # ライブラリの再インストール
 sudo docker compose run reinstall
+# 最新のリポジトリへ更新
+cd kikuka
+git pull
+git submodule foreach git pull origin master
 ```
 
 ## Connect to UI
-http://localhost:7860/
+http://localhost:8188/
 
-http://localhost:4545/ 
+http://localhost:8888/ 
 
 # Tips
 ## ダウンロードするモデルや拡張機能を変更したい場合
-extensions/model.json を編集してください。次回実行時に自動でダウンロードされます。
+extensions/models.json を編集してください。次回実行時に自動でダウンロードされます。
 
 ## WSL2のネットワークが遅い場合
 https://qiita.com/bioflowy/items/02c9e945439a2d032cd2
