@@ -1,25 +1,23 @@
 {
     "url": [
         {
-            "url": "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_fatal_Anime_500000_G.pth",
-            "type": "ESRGAN"
+            "url": "https://tin.com/girl.safetensors",
+            "type": "Checkpoint"
         },
         {
-            "url": "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x-AnimeSharp.pth",
-            "type": "ESRGAN"
+            "url": "https://tin.com/girl-vae.safetensors",
+            "type": "VAE"
         }
     ],
-    "directory": {
-        "sd": "stable-diffusion-webui/",
-        "Models": "stable-diffusion-webui/models/",
-        "outputs": "stable-diffusion-webui/outputs/",
-        "Extensions": "stable-diffusion-webui/extensions/",
-        "ControlNet": "stable-diffusion-webui/extensions/sd-webui-controlnet/models/",
-        "LORA": "stable-diffusion-webui/models/Lora/",
-        "ESRGAN": "stable-diffusion-webui/models/ESRGAN/",
-        "LoCon": "stable-diffusion-webui/models/Lora/",
-        "TextualInversion": "stable-diffusion-webui/embeddings/",
-        "VAE": "stable-diffusion-webui/models/VAE/",
-        "Checkpoint": "stable-diffusion-webui/models/Stable-diffusion/"
+    "path": {
+        "Checkpoint": "ComfyUI/models/checkpoints/",
+        "VAE": "ComfyUI/models/vae/",
+        "TextualInversion": "ComfyUI/models/embeddings/",
+        "AestheticGradient": "ComfyUI/models/embeddings/",
+        "Hypernetwork": "ComfyUI/models/hypernetworks/",
+        "LORA": "ComfyUI/models/loras/",
+        "Controlnet": "ComfyUI/models/controlnet/",
+        "UpscaleModel": "ComfyUI/models/upscale_models/",
+        "output": "ComfyUI/output/"
     }
 }

@@ -2,72 +2,70 @@
     "url": [
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_ip2p.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_shuffle.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11f1e_sd15_tile.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11f1p_sd15_depth.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_canny.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_inpaint.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_lineart.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_mlsd.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_normalbae.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_openpose.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_scribble.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_seg.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_softedge.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         },
         {
             "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15s2_lineart_anime.pth",
-            "type": "ControlNet"
+            "type": "Controlnet"
         }
     ],
-    "directory": {
-        "sd": "stable-diffusion-webui/",
-        "Models": "stable-diffusion-webui/models/",
-        "outputs": "stable-diffusion-webui/outputs/",
-        "Extensions": "stable-diffusion-webui/extensions/",
-        "ControlNet": "stable-diffusion-webui/extensions/sd-webui-controlnet/models/",
-        "LORA": "stable-diffusion-webui/models/Lora/",
-        "ESRGAN": "stable-diffusion-webui/models/ESRGAN/",
-        "LoCon": "stable-diffusion-webui/models/Lora/",
-        "TextualInversion": "stable-diffusion-webui/embeddings/",
-        "VAE": "stable-diffusion-webui/models/VAE/",
-        "Checkpoint": "stable-diffusion-webui/models/Stable-diffusion/"
+    "path": {
+        "Checkpoint": "ComfyUI/models/checkpoints/",
+        "VAE": "ComfyUI/models/vae/",
+        "TextualInversion": "ComfyUI/models/embeddings/",
+        "AestheticGradient": "ComfyUI/models/embeddings/",
+        "Hypernetwork": "ComfyUI/models/hypernetworks/",
+        "LORA": "ComfyUI/models/loras/",
+        "Controlnet": "ComfyUI/models/controlnet/",
+        "UpscaleModel": "ComfyUI/models/upscale_models/",
+        "output": "ComfyUI/output/"
     }
 }

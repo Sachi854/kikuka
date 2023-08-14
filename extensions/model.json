@@ -1,21 +1,6 @@
 {
     "url": [
         {
-            "url": "https://civitai.com/models/16014/anime-lineart-manga-like-style"
-        },
-        {
-            "url": "https://civitai.com/models/9930/hk416-lolita-girlsfrontline"
-        },
-        {
-            "url": "https://civitai.com/models/9854/sangonomiya-kokomi-genshin-impact"
-        },
-        {
-            "url": "https://civitai.com/models/9828/faruzan-genshin-impact"
-        },
-        {
-            "url": "https://civitai.com/models/9942/abyssorangemix3-aom3"
-        },
-        {
             "url": "https://huggingface.co/datasets/gsdf/EasyNegative/resolve/main/EasyNegative.safetensors",
             "type": "TextualInversion"
         },
@@ -40,41 +25,47 @@
             "type": "Checkpoint"
         },
         {
-            "url": "https://huggingface.co/gsdf/Counterfeit-V2.5/resolve/main/Counterfeit-V2.2.safetensors",
-            "type": "Checkpoint"
-        },
-        {
-            "url": "https://huggingface.co/Linaqruf/animagine-xl/resolve/main/animagine-xl.safetensors",
-            "type": "Checkpoint"
-        },
-        {
-            "url": "https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/VAEs/orangemix.vae.pt",
-            "type": "VAE"
-        },
-        {
             "url": "https://huggingface.co/NoCrypt/blessed_vae/resolve/main/blessed2.vae.pt",
             "type": "VAE"
         },
         {
+            "url": "https://huggingface.co/gsdf/Counterfeit-V2.5/resolve/main/Counterfeit-V2.2.safetensors",
+            "type": "Checkpoint"
+        },
+        {
+            "url": "https://huggingface.co/gsdf/Counterfeit-V2.5/resolve/main/Counterfeit-V2.5.vae.pt",
+            "type": "VAE"
+        },
+        {
             "url": "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_fatal_Anime_500000_G.pth",
-            "type": "ESRGAN"
+            "type": "UpscaleModel"
         },
         {
             "url": "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x-AnimeSharp.pth",
-            "type": "ESRGAN"
+            "type": "UpscaleModel"
+        },
+        {
+            "url": "https://civitai.com/models/16014/anime-lineart-manga-like-style"
+        },
+        {
+            "url": "https://civitai.com/models/9854/sangonomiya-kokomi-genshin-impact"
+        },
+        {
+            "url": "https://civitai.com/models/9828/faruzan-genshin-impact"
+        },
+        {
+            "url": "https://civitai.com/models/122533"
         }
     ],
-    "directory": {
-        "sd": "stable-diffusion-webui/",
-        "Models": "stable-diffusion-webui/models/",
-        "outputs": "stable-diffusion-webui/outputs/",
-        "Extensions": "stable-diffusion-webui/extensions/",
-        "ESRGAN": "stable-diffusion-webui/models/ESRGAN/",
-        "LoCon": "stable-diffusion-webui/models/Lora/",
-        "VAE": "stable-diffusion-webui/models/VAE/",
-        "Checkpoint": "stable-diffusion-webui/models/Stable-diffusion/",
-        "TextualInversion": "stable-diffusion-webui/embeddings/",
-        "LORA": "stable-diffusion-webui/models/Lora/",
-        "ControlNet": "stable-diffusion-webui/extensions/sd-webui-controlnet/models/"
+    "path": {
+        "Checkpoint": "ComfyUI/models/checkpoints/",
+        "VAE": "ComfyUI/models/vae/",
+        "TextualInversion": "ComfyUI/models/embeddings/",
+        "AestheticGradient": "ComfyUI/models/embeddings/",
+        "Hypernetwork": "ComfyUI/models/hypernetworks/",
+        "LORA": "ComfyUI/models/loras/",
+        "Controlnet": "ComfyUI/models/controlnet/",
+        "UpscaleModel": "ComfyUI/models/upscale_models/",
+        "output": "ComfyUI/output/"
     }
 }
